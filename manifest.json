@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": [
-        "http://pitchfork.com/reviews/albums/*", "https://pitchfork.com/reviews/albums/*"
+        "http://pitchfork.com/reviews/*", "https://pitchfork.com/reviews/*", "http://pitchfork.com/*", "https://pitchfork.com/*"
       ],
       "js": ["js/jquery-2.1.1.min.js", "content_script.js"]
     }

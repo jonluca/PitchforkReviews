@@ -1,10 +1,15 @@
 addScores();
+
 var count = 0;
 var scrollTimer,
     lastScrollFireTime = 0;
 
-$(document).scroll(function() {
+$(document).scroll(timedAction);
+$(window).bind('hashchange', addScores());
+document.addEventListener("click", addScores);
+document.addEventListener("DOMNodeInserted", addScores);
 
+function timedAction() {
     var minScrollTime = 100;
     var now = new Date().getTime();
 
@@ -22,10 +27,7 @@ $(document).scroll(function() {
             addScores();
         }, minScrollTime);
     }
-
-
-});
-
+}
 
 function addScores() {
     count = $(".review").length;
@@ -56,5 +58,6 @@ function addScores() {
 
 function parseRating(data) {
     var html = $($.parseHTML(data)).find(".score");
-    return html.text();
+    var numeric = parseFloat(html.text());
+    return numeric.toFixed(1).toString();
 }
