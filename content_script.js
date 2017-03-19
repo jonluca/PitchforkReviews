@@ -31,12 +31,12 @@ function addScores() {
     count = $(".review").length;
     $(".review").each(function(index) {
         var link = $(this).children(".album-link");
-        var title = $(this).find(".album-artist");
+        var title = $(this).find(".meta");
         if (!$(this).hasClass("addedScore")) {
             $(this).addClass("addedScore");
             $.get($(link[0]).attr('href'), function(data) {
                 var rating = parseRating(data);
-                $(title).append("<h2 class=\"title\" id=\"addedScore\">Score: " + rating + "</h2>");
+                $(title).prepend("<h2 class=\"genre-list\">Score: " + rating + "</h2>");
             });
         }
     });
