@@ -39,7 +39,17 @@ function addScores() {
         if (!$(this).hasClass("addedScore")) {
             $(this).addClass("addedScore");
             $.get(href, function(data) {
-                var rating = parseRating(data);
+                var html = $($.parseHTML(data)).find(".score");
+                var rating = parseFloat(html[0].textContent);
+                rating = rating.toFixed(1).toString();
+                if (html.length > 1) {
+                    for (var i = 1; i < html.length; i++) {
+                        var numeric = parseFloat(html[i].textContent);
+                        numeric.toFixed(1).toString();
+                        rating += " and " + numeric;
+                    }
+                }
+
                 $(title).prepend("<h2 class=\"genre-list\"><a href=\"" + href + "\"> Score: " + rating + "</a></h2>");
             });
         }
@@ -48,18 +58,4 @@ function addScores() {
 
 
 
-// for (album in albums) {
-//     console.log(album.querySelector("a"));
 
-//     var albumArt = $(album).find(".album-link");
-//     console.log(albumArt[0]);
-//     console.log($(albumArt[0]).attr("href"));
-// }
-
-
-
-function parseRating(data) {
-    var html = $($.parseHTML(data)).find(".score");
-    var numeric = parseFloat(html.text());
-    return numeric.toFixed(1).toString();
-}
