@@ -32,9 +32,9 @@ function timedAction() {
 function addScores() {
     count = $(".review").length;
     $(".review").each(function(index) {
-        var link = $(this).children(".album-link");
-        var title = $(this).find(".meta");
+        var link = $(this).children(".review__link");
         var href = $(link[0]).attr('href');
+        var artwork = $(this).find(".review__meta");
 
         if (!$(this).hasClass("addedScore")) {
             $(this).addClass("addedScore");
@@ -49,8 +49,7 @@ function addScores() {
                         rating += " and " + numeric;
                     }
                 }
-
-                $(title).prepend("<h2 class=\"genre-list\"><a href=\"" + href + "\"> Score: " + rating + "</a></h2>");
+                $(artwork).prepend("<h2 class=\"genre-list\"><a href=\"" + href + "\"> Score: " + rating + "</a></h2>");
             });
         }
     });
