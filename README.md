@@ -1,9 +1,5 @@
 # Pitchfork Reviews
 
-A Chrome Extension that will put the score for a review on Pitchfork on the Reviews page itself, without having to navigate to the specific page
+Manifest V3 migration of removed Chrome Web Store item `gjoegfclkpaladmcogjfkbjacpjiknnj`.
 
-<img src="https://i.imgur.com/Wq35eB9.jpg">
-
-## Chrome Webstore
-
-[Link to published version on Chrome Webstore](https://chrome.google.com/webstore/detail/pitchfork-reviews/gjoegfclkpaladmcogjfkbjacpjiknnj)
+The old background page and bundled jQuery 2.1 dependency were removed. A modern content script now uses `fetch`, `DOMParser`, and `MutationObserver`. Run `npm install`, then `npm run build` for Chrome, Edge, Firefox, and Safari outputs.
