@@ -6,7 +6,7 @@ export default defineConfig({
   manifest: ({ browser }) => ({
     name: "Pitchfork Reviews",
     description: "Show album scores directly on Pitchfork review listing pages.",
-    version: "2.0.0",
+    version: "2.1.0",
     homepage_url: "https://github.com/jonluca/PitchforkReviews/",
     icons: {
       32: "images/icon32.png",
